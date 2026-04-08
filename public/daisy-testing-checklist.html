@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daisy Complete Testing Checklist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+        }
+        h1 {
+            color: #f59e0b;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #1f2937;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #f59e0b;
+            font-size: 1.4em;
+        }
+        h3 {
+            color: #374151;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #f59e0b;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background: #fef3c7;
+        }
+        tr:hover {
+            background: #fde68a;
+        }
+        .checkbox {
+            width: 20px;
+            text-align: center;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .highlight-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .credentials-box {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .smoke-test {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .smoke-test h3 {
+            color: #3b82f6;
+            margin-top: 0;
+        }
+        ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .print-btn {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+        }
+        .print-btn:hover {
+            background: #d97706;
+        }
+        @media print {
+            .print-btn {
+                display: none;
+            }
+            body {
+                padding: 20px;
+            }
+            h2 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+        }
+        .header-icon {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .section-number {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-icon">🌼</div>
+    <h1>Daisy Complete Testing Checklist</h1>
+    <p class="subtitle">Digital Caregiver for Families | Version 1.0 | April 2026</p>
+
+    <button class="print-btn" onclick="window.print()">📥 Save as PDF / Print</button>
+
+    <h2><span class="section-number">1</span> Basic Conversations</h2>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Test</th>
+            <th>What to Send</th>
+            <th>Expected Response</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Greeting</td>
+            <td><code>Hi</code> or <code>Hello</code></td>
+            <td>Warm greeting from Daisy</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Name Setting</td>
+            <td><code>My name is [Your Name]</code></td>
+            <td>Daisy acknowledges and remembers</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Name Recall</td>
+            <td><code>What's my name?</code></td>
+            <td>Daisy should say your name</td>
+        </tr>
+    </table>
+
+    <h2><span class="section-number">2</span> Self Reminders</h2>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Test</th>
+            <th>What to Send</th>
+            <th>Expected Response</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Quick Reminder</td>
+            <td><code>Remind me to drink water in 2 minutes</code></td>
+            <td>Confirmation + reminder arrives in 2 mins</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Specific Time</td>
+            <td><code>Remind me to call John at 3 PM</code></td>
+            <td>Confirmation with correct time</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Tomorrow</td>
+            <td><code>Remind me tomorrow at 9 AM to exercise</code></td>
+            <td>Scheduled for next day</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Daily Recurring</td>
+            <td><code>Remind me to take vitamins every day at 8 AM</code></td>
+            <td>Daily recurring reminder set</td>
+        </tr>
+    </table>
+
+    <h2><span class="section-number">3</span> Reminders for Others (Delegated)</h2>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Test</th>
+            <th>What to Send</th>
+            <th>Expected Response</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>New Contact</td>
+            <td><code>Remind my dad to take medicine at 9 AM</code></td>
+            <td>Daisy asks for dad's phone number</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Provide Number</td>
+            <td>Send the phone number</td>
+            <td>Daisy confirms and sends consent request</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>After Consent</td>
+            <td>(Other person replies "AGREE")</td>
+            <td>Reminder gets activated</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Existing Contact</td>
+            <td><code>Remind dad to drink water in 5 minutes</code></td>
+            <td>Should use saved contact (no phone ask)</td>
+        </tr>
+    </table>
+
+    <h2><span class="section-number">4</span> Interactive Reminder Responses</h2>
+    <p>When you receive a reminder, test these responses:</p>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Response Type</th>
+            <th>What to Send</th>
+            <th>What Happens</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Mark Done</td>
+            <td><code>Done</code> or <code>Ho gaya</code> or <code>Kar diya</code></td>
+            <td>Marks reminder as complete</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Snooze</td>
+            <td><code>Later</code> or <code>Baad mein</code></td>
+            <td>Snoozes for 10 minutes</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Skip</td>
+            <td><code>Skip</code> or <code>Chhod do</code></td>
+            <td>Skips the reminder</td>
+        </tr>
+    </table>
+
+    <h2><span class="section-number">5</span> Habit Tracking</h2>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Test</th>
+            <th>What to Send</th>
+            <th>Expected Response</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Create Habit</td>
+            <td><code>Help me build a habit of meditation</code></td>
+            <td>Asks for schedule details</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>List Habits</td>
+            <td><code>Show my habits</code></td>
+            <td>Lists all your habits</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Log Habit</td>
+            <td><code>I meditated today</code></td>
+            <td>Marks habit as done</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Habit Status</td>
+            <td><code>How am I doing with my habits?</code></td>
+            <td>Shows progress</td>
+        </tr>
+    </table>
+
+    <h2><span class="section-number">6</span> Voice Notes</h2>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Test</th>
+            <th>What to Do</th>
+            <th>Expected Response</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>English Voice</td>
+            <td>Send voice note in English</td>
+            <td>Transcribes and responds correctly</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Hinglish Voice</td>
+            <td>Send voice note with Hindi/English mix</td>
+            <td>Understands and responds in English</td>
+        </tr>
+    </table>
+
+    <h2><span class="section-number">7</span> Smart Messaging Features</h2>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Test</th>
+            <th>How to Test</th>
+            <th>Expected Result</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Morning Agenda</td>
+            <td>Wait for your set agenda time</td>
+            <td>Daily summary of tasks</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Evening Wrap-up</td>
+            <td>Wait for your set wrap-up time</td>
+            <td>Summary of completed/missed tasks</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Tasks Overview</td>
+            <td><code>Show my tasks</code> or <code>What's on my list?</code></td>
+            <td>List of pending reminders</td>
+        </tr>
+    </table>
+
+    <h2><span class="section-number">8</span> Website Features</h2>
+    <p>Test at: <strong>https://daisycanhandleit.com</strong></p>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Page</th>
+            <th>URL</th>
+            <th>What to Test</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Homepage</td>
+            <td>/</td>
+            <td>Landing page loads correctly</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Login</td>
+            <td>/login</td>
+            <td>Login with test account works</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Dashboard</td>
+            <td>/dashboard</td>
+            <td>View your reminders and stats</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Habits Page</td>
+            <td>/habits</td>
+            <td>View and manage habits</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Settings</td>
+            <td>/settings</td>
+            <td>Update timezone, preferences</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Privacy Policy</td>
+            <td>/privacy</td>
+            <td>Page loads correctly</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Terms</td>
+            <td>/terms</td>
+            <td>Page loads correctly</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Contact</td>
+            <td>/contact</td>
+            <td>Page loads correctly</td>
+        </tr>
+    </table>
+
+    <h2><span class="section-number">9</span> Admin Dashboard</h2>
+    <p>Test at: <strong>https://daisycanhandleit.com/admin</strong></p>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Test</th>
+            <th>What to Check</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Admin Login</td>
+            <td>Login with admin credentials</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>User Stats</td>
+            <td>View total users, active users</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>System Health</td>
+            <td>Check MongoDB, Twilio status</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Activity Logs</td>
+            <td>View recent activity</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>QR Code</td>
+            <td>Download marketing QR code</td>
+        </tr>
+    </table>
+
+    <h2><span class="section-number">10</span> Edge Cases & Error Handling</h2>
+    <table>
+        <tr>
+            <th class="checkbox">✓</th>
+            <th>Test</th>
+            <th>What to Send</th>
+            <th>Expected Response</th>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Invalid Time</td>
+            <td><code>Remind me at purple o'clock</code></td>
+            <td>Politely asks for clarification</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Cancel</td>
+            <td><code>Cancel</code> or <code>Stop</code></td>
+            <td>Cancels current action</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Gibberish</td>
+            <td>Random text</td>
+            <td>Friendly "I didn't understand" response</td>
+        </tr>
+        <tr>
+            <td class="checkbox">☐</td>
+            <td>Empty Reminder</td>
+            <td><code>Remind me</code> (no details)</td>
+            <td>Asks what to remind about</td>
+        </tr>
+    </table>
+
+    <div class="credentials-box">
+        <h3>📋 Test Credentials</h3>
+        <p><strong>Website Login:</strong></p>
+        <ul>
+            <li>Email: <code>test@test.com</code></li>
+            <li>Password: <code>password</code></li>
+        </ul>
+        <p><strong>Admin Login:</strong></p>
+        <ul>
+            <li>Email: <code>admin@daisy.com</code></li>
+            <li>Password: <code>admin_password</code></li>
+        </ul>
+    </div>
+
+    <div class="smoke-test">
+        <h3>⚡ Quick 5-Minute Smoke Test</h3>
+        <p>If you're short on time, test these 5 things:</p>
+        <ol>
+            <li>☐ Send "Hi" → Get greeting</li>
+            <li>☐ "Remind me to test in 2 minutes" → Get reminder in 2 mins</li>
+            <li>☐ Reply "Done" to reminder → Marked complete</li>
+            <li>☐ Visit https://daisycanhandleit.com → Website loads</li>
+            <li>☐ Login to dashboard → See your data</li>
+        </ol>
+    </div>
+
+    <div class="highlight-box">
+        <h3>📝 Testing Notes</h3>
+        <p>Use this space to write any observations during testing:</p>
+        <br><br><br><br><br>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">📥 Save as PDF / Print</button>
+
+    <p style="text-align: center; color: #999; margin-top: 40px;">
+        Daisy - Digital Caregiver for Families | daisycanhandleit.com
+    </p>
+</body>
+</html>

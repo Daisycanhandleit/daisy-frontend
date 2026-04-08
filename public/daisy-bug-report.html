@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daisy Bug Report Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+        }
+        h1 {
+            color: #dc2626;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #1f2937;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #dc2626;
+            font-size: 1.4em;
+        }
+        h3 {
+            color: #374151;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .bug-form {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            background: #fafafa;
+            page-break-inside: avoid;
+        }
+        .bug-form h3 {
+            color: #dc2626;
+            border-bottom: 2px solid #fecaca;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1em;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .form-group textarea.large {
+            min-height: 120px;
+        }
+        .inline-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .severity-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .severity-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .severity-critical { color: #dc2626; }
+        .severity-high { color: #ea580c; }
+        .severity-medium { color: #ca8a04; }
+        .severity-low { color: #16a34a; }
+        .code-block {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        .example-section {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .example-section h3 {
+            color: #3b82f6;
+            margin-top: 0;
+        }
+        .tracking-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .tracking-table th,
+        .tracking-table td {
+            border: 1px solid #d1d5db;
+            padding: 12px;
+            text-align: left;
+        }
+        .tracking-table th {
+            background: #dc2626;
+            color: white;
+        }
+        .tracking-table tr:nth-child(even) {
+            background: #fef2f2;
+        }
+        .print-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+        }
+        .print-btn:hover {
+            background: #b91c1c;
+        }
+        @media print {
+            .print-btn {
+                display: none;
+            }
+            body {
+                padding: 20px;
+            }
+            .bug-form {
+                page-break-inside: avoid;
+            }
+        }
+        .header-icon {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .severity-guide {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .status-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        .badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        .badge-open { background: #fef2f2; color: #dc2626; border: 1px solid #dc2626; }
+        .badge-progress { background: #fffbeb; color: #ca8a04; border: 1px solid #ca8a04; }
+        .badge-fixed { background: #f0fdf4; color: #16a34a; border: 1px solid #16a34a; }
+        .badge-verified { background: #eff6ff; color: #3b82f6; border: 1px solid #3b82f6; }
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-icon">🐛</div>
+    <h1>Daisy Bug Report Template</h1>
+    <p class="subtitle">Use this template to document any issues found during testing</p>
+
+    <button class="print-btn" onclick="window.print()">📥 Save as PDF / Print</button>
+
+    <div class="severity-guide">
+        <h3>📊 Severity Levels</h3>
+        <ul>
+            <li><strong class="severity-critical">🔴 Critical:</strong> Daisy completely broken, can't respond at all</li>
+            <li><strong class="severity-high">🟠 High:</strong> Core feature not working (reminders don't fire, can't create habits)</li>
+            <li><strong class="severity-medium">🟡 Medium:</strong> Feature works but incorrectly or partially</li>
+            <li><strong class="severity-low">🟢 Low:</strong> Minor issue, cosmetic, or rare edge case</li>
+        </ul>
+    </div>
+
+    <h2>📋 Bug Tracking Summary</h2>
+    <table class="tracking-table">
+        <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Feature</th>
+            <th>Severity</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div class="status-badges">
+        <span>Status Options:</span>
+        <span class="badge badge-open">Open</span>
+        <span class="badge badge-progress">In Progress</span>
+        <span class="badge badge-fixed">Fixed</span>
+        <span class="badge badge-verified">Verified</span>
+    </div>
+
+    <!-- Bug Report Form 1 -->
+    <div class="bug-form">
+        <h3>🐛 Bug Report #1</h3>
+        
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="text" placeholder="e.g., April 10, 2026">
+            </div>
+            <div class="form-group">
+                <label>Time:</label>
+                <input type="text" placeholder="e.g., 2:30 PM AEST">
+            </div>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Feature Area:</label>
+                <select>
+                    <option value="">Select...</option>
+                    <option>Reminders</option>
+                    <option>Habits</option>
+                    <option>Voice Notes</option>
+                    <option>Website</option>
+                    <option>Admin Panel</option>
+                    <option>Conversations</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Severity:</label>
+                <div class="severity-options">
+                    <label class="severity-option"><input type="radio" name="severity1"> <span class="severity-critical">🔴 Critical</span></label>
+                    <label class="severity-option"><input type="radio" name="severity1"> <span class="severity-high">🟠 High</span></label>
+                    <label class="severity-option"><input type="radio" name="severity1"> <span class="severity-medium">🟡 Medium</span></label>
+                    <label class="severity-option"><input type="radio" name="severity1"> <span class="severity-low">🟢 Low</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>What happened (Bug Description):</label>
+            <textarea placeholder="Describe what went wrong..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What should have happened (Expected Behavior):</label>
+            <textarea placeholder="Describe what you expected to happen..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Steps to Reproduce:</label>
+            <textarea class="large" placeholder="1. 
+2. 
+3. "></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What I sent to Daisy:</label>
+            <textarea placeholder="Paste your exact message here..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What Daisy replied:</label>
+            <textarea placeholder="Paste Daisy's response here..."></textarea>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Platform:</label>
+                <input type="text" placeholder="WhatsApp / Website / Admin">
+            </div>
+            <div class="form-group">
+                <label>Device:</label>
+                <input type="text" placeholder="e.g., iPhone 15 / Chrome on Windows">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Additional Notes:</label>
+            <textarea placeholder="Any other observations..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Screenshot Reference:</label>
+            <input type="text" placeholder="e.g., Screenshot_001.png">
+        </div>
+    </div>
+
+    <!-- Bug Report Form 2 -->
+    <div class="bug-form page-break">
+        <h3>🐛 Bug Report #2</h3>
+        
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="text" placeholder="e.g., April 10, 2026">
+            </div>
+            <div class="form-group">
+                <label>Time:</label>
+                <input type="text" placeholder="e.g., 2:30 PM AEST">
+            </div>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Feature Area:</label>
+                <select>
+                    <option value="">Select...</option>
+                    <option>Reminders</option>
+                    <option>Habits</option>
+                    <option>Voice Notes</option>
+                    <option>Website</option>
+                    <option>Admin Panel</option>
+                    <option>Conversations</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Severity:</label>
+                <div class="severity-options">
+                    <label class="severity-option"><input type="radio" name="severity2"> <span class="severity-critical">🔴 Critical</span></label>
+                    <label class="severity-option"><input type="radio" name="severity2"> <span class="severity-high">🟠 High</span></label>
+                    <label class="severity-option"><input type="radio" name="severity2"> <span class="severity-medium">🟡 Medium</span></label>
+                    <label class="severity-option"><input type="radio" name="severity2"> <span class="severity-low">🟢 Low</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>What happened (Bug Description):</label>
+            <textarea placeholder="Describe what went wrong..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What should have happened (Expected Behavior):</label>
+            <textarea placeholder="Describe what you expected to happen..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Steps to Reproduce:</label>
+            <textarea class="large" placeholder="1. 
+2. 
+3. "></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What I sent to Daisy:</label>
+            <textarea placeholder="Paste your exact message here..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What Daisy replied:</label>
+            <textarea placeholder="Paste Daisy's response here..."></textarea>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Platform:</label>
+                <input type="text" placeholder="WhatsApp / Website / Admin">
+            </div>
+            <div class="form-group">
+                <label>Device:</label>
+                <input type="text" placeholder="e.g., iPhone 15 / Chrome on Windows">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Additional Notes:</label>
+            <textarea placeholder="Any other observations..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Screenshot Reference:</label>
+            <input type="text" placeholder="e.g., Screenshot_002.png">
+        </div>
+    </div>
+
+    <!-- Bug Report Form 3 -->
+    <div class="bug-form page-break">
+        <h3>🐛 Bug Report #3</h3>
+        
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="text" placeholder="e.g., April 10, 2026">
+            </div>
+            <div class="form-group">
+                <label>Time:</label>
+                <input type="text" placeholder="e.g., 2:30 PM AEST">
+            </div>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Feature Area:</label>
+                <select>
+                    <option value="">Select...</option>
+                    <option>Reminders</option>
+                    <option>Habits</option>
+                    <option>Voice Notes</option>
+                    <option>Website</option>
+                    <option>Admin Panel</option>
+                    <option>Conversations</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Severity:</label>
+                <div class="severity-options">
+                    <label class="severity-option"><input type="radio" name="severity3"> <span class="severity-critical">🔴 Critical</span></label>
+                    <label class="severity-option"><input type="radio" name="severity3"> <span class="severity-high">🟠 High</span></label>
+                    <label class="severity-option"><input type="radio" name="severity3"> <span class="severity-medium">🟡 Medium</span></label>
+                    <label class="severity-option"><input type="radio" name="severity3"> <span class="severity-low">🟢 Low</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>What happened (Bug Description):</label>
+            <textarea placeholder="Describe what went wrong..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What should have happened (Expected Behavior):</label>
+            <textarea placeholder="Describe what you expected to happen..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Steps to Reproduce:</label>
+            <textarea class="large" placeholder="1. 
+2. 
+3. "></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What I sent to Daisy:</label>
+            <textarea placeholder="Paste your exact message here..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What Daisy replied:</label>
+            <textarea placeholder="Paste Daisy's response here..."></textarea>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Platform:</label>
+                <input type="text" placeholder="WhatsApp / Website / Admin">
+            </div>
+            <div class="form-group">
+                <label>Device:</label>
+                <input type="text" placeholder="e.g., iPhone 15 / Chrome on Windows">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Additional Notes:</label>
+            <textarea placeholder="Any other observations..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Screenshot Reference:</label>
+            <input type="text" placeholder="e.g., Screenshot_003.png">
+        </div>
+    </div>
+
+    <!-- Bug Report Form 4 -->
+    <div class="bug-form page-break">
+        <h3>🐛 Bug Report #4</h3>
+        
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="text" placeholder="e.g., April 10, 2026">
+            </div>
+            <div class="form-group">
+                <label>Time:</label>
+                <input type="text" placeholder="e.g., 2:30 PM AEST">
+            </div>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Feature Area:</label>
+                <select>
+                    <option value="">Select...</option>
+                    <option>Reminders</option>
+                    <option>Habits</option>
+                    <option>Voice Notes</option>
+                    <option>Website</option>
+                    <option>Admin Panel</option>
+                    <option>Conversations</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Severity:</label>
+                <div class="severity-options">
+                    <label class="severity-option"><input type="radio" name="severity4"> <span class="severity-critical">🔴 Critical</span></label>
+                    <label class="severity-option"><input type="radio" name="severity4"> <span class="severity-high">🟠 High</span></label>
+                    <label class="severity-option"><input type="radio" name="severity4"> <span class="severity-medium">🟡 Medium</span></label>
+                    <label class="severity-option"><input type="radio" name="severity4"> <span class="severity-low">🟢 Low</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>What happened (Bug Description):</label>
+            <textarea placeholder="Describe what went wrong..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What should have happened (Expected Behavior):</label>
+            <textarea placeholder="Describe what you expected to happen..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Steps to Reproduce:</label>
+            <textarea class="large" placeholder="1. 
+2. 
+3. "></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What I sent to Daisy:</label>
+            <textarea placeholder="Paste your exact message here..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What Daisy replied:</label>
+            <textarea placeholder="Paste Daisy's response here..."></textarea>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Platform:</label>
+                <input type="text" placeholder="WhatsApp / Website / Admin">
+            </div>
+            <div class="form-group">
+                <label>Device:</label>
+                <input type="text" placeholder="e.g., iPhone 15 / Chrome on Windows">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Additional Notes:</label>
+            <textarea placeholder="Any other observations..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Screenshot Reference:</label>
+            <input type="text" placeholder="e.g., Screenshot_004.png">
+        </div>
+    </div>
+
+    <!-- Bug Report Form 5 -->
+    <div class="bug-form page-break">
+        <h3>🐛 Bug Report #5</h3>
+        
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="text" placeholder="e.g., April 10, 2026">
+            </div>
+            <div class="form-group">
+                <label>Time:</label>
+                <input type="text" placeholder="e.g., 2:30 PM AEST">
+            </div>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Feature Area:</label>
+                <select>
+                    <option value="">Select...</option>
+                    <option>Reminders</option>
+                    <option>Habits</option>
+                    <option>Voice Notes</option>
+                    <option>Website</option>
+                    <option>Admin Panel</option>
+                    <option>Conversations</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Severity:</label>
+                <div class="severity-options">
+                    <label class="severity-option"><input type="radio" name="severity5"> <span class="severity-critical">🔴 Critical</span></label>
+                    <label class="severity-option"><input type="radio" name="severity5"> <span class="severity-high">🟠 High</span></label>
+                    <label class="severity-option"><input type="radio" name="severity5"> <span class="severity-medium">🟡 Medium</span></label>
+                    <label class="severity-option"><input type="radio" name="severity5"> <span class="severity-low">🟢 Low</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>What happened (Bug Description):</label>
+            <textarea placeholder="Describe what went wrong..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What should have happened (Expected Behavior):</label>
+            <textarea placeholder="Describe what you expected to happen..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Steps to Reproduce:</label>
+            <textarea class="large" placeholder="1. 
+2. 
+3. "></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What I sent to Daisy:</label>
+            <textarea placeholder="Paste your exact message here..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>What Daisy replied:</label>
+            <textarea placeholder="Paste Daisy's response here..."></textarea>
+        </div>
+
+        <div class="inline-group">
+            <div class="form-group">
+                <label>Platform:</label>
+                <input type="text" placeholder="WhatsApp / Website / Admin">
+            </div>
+            <div class="form-group">
+                <label>Device:</label>
+                <input type="text" placeholder="e.g., iPhone 15 / Chrome on Windows">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Additional Notes:</label>
+            <textarea placeholder="Any other observations..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Screenshot Reference:</label>
+            <input type="text" placeholder="e.g., Screenshot_005.png">
+        </div>
+    </div>
+
+    <div class="example-section">
+        <h3>📝 Example Bug Report (For Reference)</h3>
+        <p><strong>Date:</strong> April 8, 2026 | <strong>Time:</strong> 10:30 AM AEST</p>
+        <p><strong>Feature:</strong> Reminders | <strong>Severity:</strong> 🟠 High</p>
+        <p><strong>Bug:</strong> Set a 2-minute reminder but never received it.</p>
+        <p><strong>Expected:</strong> Should have received reminder after 2 minutes.</p>
+        <p><strong>Steps:</strong></p>
+        <ol>
+            <li>Sent "Remind me to drink water in 2 minutes"</li>
+            <li>Daisy confirmed the reminder</li>
+            <li>Waited 5 minutes - no reminder received</li>
+        </ol>
+        <p><strong>What I sent:</strong> <code>Remind me to drink water in 2 minutes</code></p>
+        <p><strong>What Daisy replied:</strong> <code>Got it! I'll remind you to drink water in 2 minutes. 🌼</code></p>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">📥 Save as PDF / Print</button>
+
+    <p style="text-align: center; color: #999; margin-top: 40px;">
+        Daisy Bug Report Template | daisycanhandleit.com
+    </p>
+</body>
+</html>
