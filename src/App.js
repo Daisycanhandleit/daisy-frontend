@@ -14,6 +14,11 @@ import AboutPage from "./pages/AboutPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import ContactPage from "./pages/ContactPage";
+import CookiePolicyPage from "./pages/CookiePolicyPage";
+import DataRetentionPage from "./pages/DataRetentionPage";
+import AIDisclosurePage from "./pages/AIDisclosurePage";
+import RefundPolicyPage from "./pages/RefundPolicyPage";
+import ComplaintsPage from "./pages/ComplaintsPage";
 
 // User Dashboard Pages
 import DashboardPage from "./pages/DashboardPage";
@@ -39,6 +44,11 @@ function App() {
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/cookies" element={<CookiePolicyPage />} />
+          <Route path="/data-retention" element={<DataRetentionPage />} />
+          <Route path="/ai-disclosure" element={<AIDisclosurePage />} />
+          <Route path="/refund" element={<RefundPolicyPage />} />
+          <Route path="/complaints" element={<ComplaintsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           
