@@ -228,11 +228,47 @@ export default function TermsPage() {
                   </div>
                 </section>
 
+                {/* Cancellations, Refunds, and Australian Consumer Law */}
+                <section className="p-6 rounded-2xl bg-green-50 border border-green-200">
+                  <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
+                    <RefreshCw className="h-5 w-5 text-green-600" />
+                    7. Cancellations, Refunds, and Australian Consumer Law
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    Your rights under the <strong>Australian Consumer Law (ACL)</strong> — Schedule 2 of the <em>Competition and Consumer Act 2010</em> (Cth) — are not excluded or limited by these Terms. Where our services fail to meet a consumer guarantee, you may be entitled to a remedy including a refund, replacement, or compensation.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-2xl bg-white/80">
+                      <h3 className="font-medium text-foreground mb-2">Cancellation Policy</h3>
+                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                        <li>You may cancel your subscription at any time by emailing <a href="mailto:kush@daisycanhandleit.com" className="text-[hsl(var(--primary))] hover:underline">kush@daisycanhandleit.com</a> or replying <strong>STOP</strong> via WhatsApp.</li>
+                        <li>Cancellations take effect at the end of the current billing period.</li>
+                        <li>During the free trial, you may cancel at any time without charge.</li>
+                      </ul>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-white/80">
+                      <h3 className="font-medium text-foreground mb-2">Refund Policy</h3>
+                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                        <li>Refund requests will be assessed on a case-by-case basis. Please email us with the reason for your request.</li>
+                        <li>Where our service has a <strong>major failure</strong> (as defined under the ACL), you are entitled to cancel and receive a full refund for the unused portion of your subscription.</li>
+                        <li>Where our service has a <strong>minor failure</strong>, we will use reasonable efforts to remedy the issue within a reasonable time. If we fail to do so, you may be entitled to a refund.</li>
+                        <li>Refunds will be processed within 14 business days to the original payment method.</li>
+                      </ul>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-white/80">
+                      <h3 className="font-medium text-foreground mb-2">Consumer Guarantees</h3>
+                      <p className="text-muted-foreground">
+                        Under the ACL, services come with guarantees that cannot be excluded, including that services will be provided with due care and skill, be fit for purpose, and be delivered within a reasonable time. Nothing in these Terms purports to exclude, restrict, or modify these guarantees. For more detail, see our <Link to="/refund" className="text-[hsl(var(--primary))] hover:underline">Refund Policy</Link> and <Link to="/complaints" className="text-[hsl(var(--primary))] hover:underline">Complaints & Dispute Resolution Policy</Link>.
+                      </p>
+                    </div>
+                  </div>
+                </section>
+
                 {/* Limitation of Liability */}
                 <section>
                   <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
                     <Ban className="h-5 w-5 text-[hsl(var(--primary))]" />
-                    7. Limitation of Liability
+                    8. Limitation of Liability
                   </h2>
                   <div className="p-4 rounded-2xl bg-red-50 border border-red-200 mb-4">
                     <p className="text-muted-foreground font-medium">
@@ -274,7 +310,7 @@ export default function TermsPage() {
                 <section>
                   <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
                     <RefreshCw className="h-5 w-5 text-[hsl(var(--primary))]" />
-                    8. Service Availability
+                    9. Service Availability
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
                     We strive to provide a reliable service, but we cannot guarantee uninterrupted availability. The service may be temporarily unavailable due to:
@@ -299,7 +335,7 @@ export default function TermsPage() {
                 <section>
                   <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
                     <Ban className="h-5 w-5 text-[hsl(var(--primary))]" />
-                    9. Termination
+                    10. Termination
                   </h2>
                   <div className="space-y-4 text-muted-foreground">
                     <div className="p-4 rounded-2xl bg-muted/30">
@@ -321,7 +357,7 @@ export default function TermsPage() {
                 <section>
                   <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
                     <Shield className="h-5 w-5 text-[hsl(var(--primary))]" />
-                    10. Intellectual Property
+                    11. Intellectual Property
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
                     All intellectual property rights in Daisy, including but not limited to software, design, logos, and content, are owned by Daisy Can Handle It Pty Ltd or our licensors.
@@ -335,7 +371,7 @@ export default function TermsPage() {
                 <section>
                   <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
                     <Gavel className="h-5 w-5 text-[hsl(var(--primary))]" />
-                    11. Governing Law & Disputes
+                    12. Governing Law & Disputes
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
                     These Terms are governed by and construed in accordance with the laws of <strong>Victoria, Australia</strong>. You agree to submit to the exclusive jurisdiction of the courts of Victoria, Australia.
@@ -347,7 +383,7 @@ export default function TermsPage() {
 
                 {/* Changes to Terms */}
                 <section>
-                  <h2 className="font-heading text-xl font-semibold mb-3">12. Changes to These Terms</h2>
+                  <h2 className="font-heading text-xl font-semibold mb-3">13. Changes to These Terms</h2>
                   <p className="text-muted-foreground leading-relaxed">
                     We may modify these Terms at any time. We will notify you of material changes by posting the updated Terms on our website and, where appropriate, via WhatsApp message. Your continued use of Daisy after changes are posted constitutes your acceptance of the new Terms.
                   </p>
@@ -355,7 +391,7 @@ export default function TermsPage() {
 
                 {/* Severability */}
                 <section>
-                  <h2 className="font-heading text-xl font-semibold mb-3">13. Severability</h2>
+                  <h2 className="font-heading text-xl font-semibold mb-3">14. Severability</h2>
                   <p className="text-muted-foreground leading-relaxed">
                     If any provision of these Terms is found to be invalid or unenforceable, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will continue in full force and effect.
                   </p>
@@ -363,7 +399,7 @@ export default function TermsPage() {
 
                 {/* Contact */}
                 <section>
-                  <h2 className="font-heading text-xl font-semibold mb-3">14. Contact Us</h2>
+                  <h2 className="font-heading text-xl font-semibold mb-3">15. Contact Us</h2>
                   <p className="text-muted-foreground leading-relaxed">
                     If you have any questions about these Terms, please contact us:
                   </p>

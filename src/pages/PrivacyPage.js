@@ -305,11 +305,88 @@ export default function PrivacyPage() {
                   </ul>
                 </section>
 
+                {/* Automated Decision-Making and AI */}
+                <section>
+                  <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
+                    <Server className="h-5 w-5 text-[hsl(var(--primary))]" />
+                    10. Automated Decision-Making and Artificial Intelligence
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    Daisy uses artificial intelligence (AI) technology to process your messages, generate personalised reminders, suggestions, and responses, and to support the features of our service. This includes the use of large language model (LLM) APIs provided by third-party AI providers to interpret and respond to your inputs via WhatsApp and our web dashboard.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    While Daisy's AI systems assist in personalising your experience, <strong>no decisions with legal consequences or similarly significant effects on your rights are made solely by automated means</strong> without the ability for human review. If you have concerns about how an AI-generated response or suggestion has affected you, you may contact us at <a href="mailto:kush@daisycanhandleit.com" className="text-[hsl(var(--primary))] hover:underline">kush@daisycanhandleit.com</a> to request a human review.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    This disclosure is made in accordance with the <em>Privacy and Other Legislation Amendment Act 2024 (Cth)</em> and the Australian Privacy Principles.
+                  </p>
+                </section>
+
+                {/* AI Subprocessors */}
+                <section>
+                  <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
+                    <Server className="h-5 w-5 text-[hsl(var(--primary))]" />
+                    11. AI Subprocessors and Third-Party Data Handling
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    To deliver Daisy's AI-powered features, your messages and inputs may be processed by third-party artificial intelligence service providers, including but not limited to large language model API providers. These providers are engaged under data processing agreements that <strong>prohibit them from using your personal information to train their own models</strong> or for any purpose beyond delivering responses to Daisy.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    We take reasonable steps to ensure all AI subprocessors meet appropriate privacy and security standards. A current list of key subprocessors is available upon request by contacting us at <a href="mailto:kush@daisycanhandleit.com" className="text-[hsl(var(--primary))] hover:underline">kush@daisycanhandleit.com</a>.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Your personal information is only shared with these providers to the minimum extent necessary to operate the service.
+                  </p>
+                </section>
+
+                {/* Data Breach Notification */}
+                <section>
+                  <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
+                    <AlertTriangle className="h-5 w-5 text-[hsl(var(--primary))]" />
+                    12. Data Breach Notification
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    Daisy takes the security of your personal information seriously. In the event of a data breach that is likely to result in serious harm to any affected individuals, we will act in accordance with our obligations under the <strong>Notifiable Data Breaches (NDB) scheme</strong> under the Privacy Act 1988 (Cth).
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-3">This means we will:</p>
+                  <ul className="space-y-2 text-muted-foreground mb-3">
+                    <li className="flex items-start gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[hsl(var(--primary))] mt-2 shrink-0"></span>
+                      <span>Promptly assess the breach to determine whether serious harm is likely</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[hsl(var(--primary))] mt-2 shrink-0"></span>
+                      <span>Notify the Office of the Australian Information Commissioner (OAIC) as required</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[hsl(var(--primary))] mt-2 shrink-0"></span>
+                      <span>Notify affected individuals as soon as practicable, including details of the breach and recommended steps they can take to protect themselves</span>
+                    </li>
+                  </ul>
+                  <p className="text-muted-foreground leading-relaxed">
+                    If you believe your data may have been compromised, please contact us immediately at <a href="mailto:kush@daisycanhandleit.com" className="text-[hsl(var(--primary))] hover:underline">kush@daisycanhandleit.com</a>.
+                  </p>
+                </section>
+
+                {/* Children and Minors */}
+                <section>
+                  <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
+                    <Users className="h-5 w-5 text-[hsl(var(--primary))]" />
+                    13. Children and Minors
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-3">
+                    Daisy is intended for use by individuals who are <strong>18 years of age or older</strong>. We do not knowingly collect, store, or process personal information from anyone under the age of 18. If we become aware that a user is under 18, we will promptly delete their account and all associated personal information.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    If you believe a minor has provided us with personal information, please contact us immediately at <a href="mailto:kush@daisycanhandleit.com" className="text-[hsl(var(--primary))] hover:underline">kush@daisycanhandleit.com</a> so we can take appropriate action.
+                  </p>
+                </section>
+
                 {/* Complaints */}
                 <section>
                   <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
                     <Mail className="h-5 w-5 text-[hsl(var(--primary))]" />
-                    10. Privacy Complaints (APP 1)
+                    14. Privacy Complaints (APP 1)
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-3">
                     If you believe we have breached the Australian Privacy Principles or have a complaint about how we've handled your personal information:
@@ -337,14 +414,16 @@ export default function PrivacyPage() {
                 <section>
                   <h2 className="font-heading text-xl font-semibold mb-3 flex items-center gap-2">
                     <Mail className="h-5 w-5 text-[hsl(var(--primary))]" />
-                    11. Contact Us
+                    15. Contact Us
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
                     For any privacy-related questions or requests, please contact us:
                   </p>
                   <div className="mt-4 p-4 rounded-2xl bg-[hsl(var(--primary))]/10">
                     <p className="font-medium">Daisy Can Handle It Pty Ltd</p>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">Operated in Victoria, Australia</p>
+                    <p className="text-muted-foreground text-sm">ABN: [INSERT ABN ONCE REGISTERED]</p>
+                    <p className="text-muted-foreground mt-2">
                       Email: <a href="mailto:kush@daisycanhandleit.com" className="text-[hsl(var(--primary))] hover:underline">kush@daisycanhandleit.com</a>
                     </p>
                     <p className="text-muted-foreground">
@@ -355,7 +434,7 @@ export default function PrivacyPage() {
 
                 {/* Changes to Policy */}
                 <section>
-                  <h2 className="font-heading text-xl font-semibold mb-3">12. Changes to This Policy</h2>
+                  <h2 className="font-heading text-xl font-semibold mb-3">16. Changes to This Policy</h2>
                   <p className="text-muted-foreground leading-relaxed">
                     We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on our website and, where appropriate, via WhatsApp message. Your continued use of Daisy after changes are posted constitutes your acceptance of the updated policy.
                   </p>
@@ -385,6 +464,8 @@ export default function PrivacyPage() {
             <Link to="/ai-disclosure" className="hover:text-[hsl(var(--primary))]">AI Disclosure</Link>
             <Link to="/contact" className="hover:text-[hsl(var(--primary))]">Contact</Link>
           </div>
+          <p className="mb-2">Daisy is a product operated in Victoria, Australia.</p>
+          <p className="mb-2">ABN: [INSERT ABN ONCE REGISTERED]</p>
           <p>&copy; {new Date().getFullYear()} Daisy Can Handle It Pty Ltd. All rights reserved.</p>
         </div>
       </footer>
